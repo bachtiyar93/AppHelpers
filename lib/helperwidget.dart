@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:oktoast/oktoast.dart';
 
 
-Widget? appRootTree(
+OKToast appRootTree(
     {
       required String title,
       bool bannerShow=false,
