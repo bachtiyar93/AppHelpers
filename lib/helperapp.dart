@@ -110,7 +110,7 @@ class AppHelpers {
         .addPostFrameCallback((_) => function);
   }
 
-  static ChangeNotifier getState(BuildContext context,{bool listen = true}){
-    return Provider.of(context, listen:listen);
+  static T getState<T extends ChangeNotifier>(BuildContext context,{bool listen = true}){
+    return Provider.of<T>(context, listen:listen);
   }
 }
