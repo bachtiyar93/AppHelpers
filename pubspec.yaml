@@ -1,6 +1,6 @@
 name: apphelper
 description: "This package create by bachtiyar93 for internal only"
-version: 0.0.3
+version: 0.0.4
 homepage: https://bachtiyar93.github.io
 
 environment:
@@ -12,7 +12,6 @@ dependencies:
   crypto: any
   flutter:
     sdk: flutter
-  intl: any
   oktoast: any
   provider: any
 

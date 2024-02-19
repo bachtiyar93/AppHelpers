@@ -30,11 +30,13 @@ class CurrencyFormatter implements BaseCurrencyFormatter {
     Object price, {
     String currency = 'Rp',
   }) {
-    if (price is double)
+    if (price is double) {
       return formatRupiahDouble(price, currency: currency);
+    }
 
-    if (price is String)
+    if (price is String) {
       return formatRupiah(price, currency: currency);
+    }
 
     if (price is int) {
       if (price < 0) {
@@ -52,11 +54,13 @@ class CurrencyFormatter implements BaseCurrencyFormatter {
     Object price, {
     String currency = 'Rp',
   }) {
-    if (price is int)
+    if (price is int) {
       return formatRupiahInt(price, currency: currency);
+    }
 
-    if (price is String)
+    if (price is String) {
       return formatRupiah(price, currency: currency);
+    }
 
     if (price is double) {
       if (price < 0) {
