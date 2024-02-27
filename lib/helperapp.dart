@@ -43,11 +43,11 @@ class AppHelpers {
     }
   }
   //Delay with duration
-  static futureDelay(Duration dur,function){
+  Future<void> futureDelay(Duration dur,function){
     return Future.delayed(dur,()=>function);
   }
   ///run after state completly build
-  static void runAfterBuild(function){
+  void runAfterBuild(function){
     return WidgetsBinding.instance
         .addPostFrameCallback((_) => function);
   }
