@@ -126,7 +126,7 @@ class AppHelpers {
     return Future.delayed(dur,()=>function);
   }
   ///run after state completly build
-  void runAfterBuild(function){
+  static void runAfterBuild(function){
     return WidgetsBinding.instance
         .addPostFrameCallback((_) => function);
   }
