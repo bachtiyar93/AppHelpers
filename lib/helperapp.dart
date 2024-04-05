@@ -34,12 +34,91 @@ class AppHelpers {
     return base64Encode(utf8.encode(password));
   }
 
+  // CustomProgressDialog
+  static Future<void> showWarning({title, text, dissmisable = false}) async {
+    await showDialog<void>(
+      context: navigation.navigatorKey.currentContext!,
+      barrierColor: Colors.transparent,
+      barrierDismissible: dissmisable,
+      // false = user must tap button, true = tap outside dialog
+      builder: (BuildContext dialogContext) {
+        return AlertDialog(
+          title: Row(
+            children: [
+              const Icon(
+                Icons.warning_amber,
+                color: Colors.amber,
+              ),
+              Text(
+                title ?? "Error",
+                style: const TextStyle(color: Colors.amber),
+              ),
+            ],
+          ),
+          content: Text(text ?? ""),
+          actions: <Widget>[
+            TextButton(
+              child: const Text('OK'),
+              onPressed: () {
+                AppHelpers.navigation.closePage(); // Dismiss alert dialog
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+// CustomProgressDialog
+  static void showProgress({text, dissmisable = false, child}) {
+    showDialog<void>(
+      context: navigation.navigatorKey.currentContext!,
+      barrierColor: Colors.transparent,
+      barrierDismissible: dissmisable,
+      // false = user must tap button, true = tap outside dialog
+      builder: (BuildContext dialogContext) {
+        return AlertDialog(
+          backgroundColor: Colors.white,
+          content: Container(
+              alignment: FractionalOffset.center,
+              height: 80.0,
+              padding: const EdgeInsets.all(20.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  child??const CircularProgressIndicator(),
+                  const SizedBox(
+                    width: 5,
+                  ),
+                   Text(text)
+                ],
+              )),
+        );
+      },
+    );
+  }
+  static void showSnackBar({required Text text}){
+    ScaffoldMessenger.of(navigation.navigatorKey.currentContext!).showSnackBar(
+        SnackBar(
+          behavior: SnackBarBehavior.floating,
+          backgroundColor: Theme.of(navigation.navigatorKey.currentContext!).colorScheme.secondary,
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(25.0),
+              side: BorderSide(width: 4,color: Theme.of(navigation.navigatorKey.currentContext!).colorScheme.onPrimary)
+          ),
+          margin: const EdgeInsets.only(bottom: 35,left:35,right:35 ),
+          content: Container(
+              margin: const EdgeInsets.symmetric(horizontal: 10),
+              height: 15,
+              child: FittedBox(child: text)),
+        ));
+  }
   ///GetPage data by payload with key
-  static getPageData(context) {
-    if (ModalRoute.of(context)!.settings.arguments == null) {
+  static getPageData() {
+    if (ModalRoute.of(navigation.navigatorKey.currentContext!)!.settings.arguments == null) {
       return <String, dynamic>{};
     } else {
-      return ModalRoute.of(context)!.settings.arguments;
+      return ModalRoute.of(navigation.navigatorKey.currentContext!)!.settings.arguments;
     }
   }
   //Delay with duration

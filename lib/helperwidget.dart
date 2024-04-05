@@ -1,12 +1,10 @@
 library helperwidget;
 import 'package:apphelper/helperapp.dart';
-import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
-import 'package:oktoast/oktoast.dart';
 
 
 
-OKToast appRootTree (
+MaterialApp appRootTree (
     {
       required String title,
       bool bannerShow=false,
@@ -22,27 +20,22 @@ OKToast appRootTree (
 
     })
 {
-  builder ??= BotToastInit();
   navigatorKey ??= AppHelpers.navigation.navigatorKey;
   scaffoldMessengerKey??= AppHelpers.navigation.messengerKey;
-  navigatorObserver??=[BotToastNavigatorObserver()];
   theme??=ThemeData.light(useMaterial3: true);
   darkTheme??=ThemeData.dark(useMaterial3: true);
 
 
-return OKToast(
-  child: MaterialApp(
+return MaterialApp(
     title: title,
     debugShowCheckedModeBanner: bannerShow,
     builder: builder,
     navigatorKey: navigatorKey,
     scaffoldMessengerKey: scaffoldMessengerKey,
-    navigatorObservers: navigatorObserver,
     theme: theme,
     darkTheme: darkTheme,
     themeMode: themeMode,
     initialRoute: initPage,
     routes: routes,
-  ),
-);
+  );
 }

@@ -8,12 +8,11 @@ environment:
   flutter: ">=1.17.0"
 
 dependencies:
-  bot_toast: any
   crypto: any
   flutter:
     sdk: flutter
-  oktoast: any
   provider: any
+  intl: any
 
 dev_dependencies:
   flutter_test:
