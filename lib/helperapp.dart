@@ -36,7 +36,7 @@ class AppHelpers {
 
   // CustomProgressDialog
   static Future<void> showWarning({title, text, dissmisable = false}) async {
-    await showDialog<void>(
+    return await showDialog<void>(
       context: navigation.navigatorKey.currentContext!,
       barrierColor: Colors.transparent,
       barrierDismissible: dissmisable,
@@ -70,8 +70,8 @@ class AppHelpers {
   }
 
 // CustomProgressDialog
-  static void showProgress({text, dissmisable = false, child}) {
-    showDialog<void>(
+  static Future<void> showProgress({text, dissmisable = false, child}) async {
+    return await showDialog<void>(
       context: navigation.navigatorKey.currentContext!,
       barrierColor: Colors.transparent,
       barrierDismissible: dissmisable,
@@ -97,8 +97,8 @@ class AppHelpers {
       },
     );
   }
-  static void showSnackBar({required Text text}){
-    ScaffoldMessenger.of(navigation.navigatorKey.currentContext!).showSnackBar(
+  static showSnackBar({required Text text}){
+    return ScaffoldMessenger.of(navigation.navigatorKey.currentContext!).showSnackBar(
         SnackBar(
           behavior: SnackBarBehavior.floating,
           backgroundColor: Theme.of(navigation.navigatorKey.currentContext!).colorScheme.secondary,
