@@ -130,7 +130,7 @@ class AppHelpers {
     return WidgetsBinding.instance
         .addPostFrameCallback((_) => function);
   }
-  static T getState<T extends ChangeNotifier>(BuildContext context,{bool listen = true}){
-    return Provider.of<T>(context, listen:listen);
+  static T getState<T extends ChangeNotifier>({bool listen = true}){
+    return Provider.of<T>(navigation.navigatorKey.currentContext!, listen:listen);
   }
 }
