@@ -126,11 +126,26 @@ class AppHelpers {
     return Future.delayed(dur,()=>function);
   }
   ///run after state completly build
-  static void runAfterBuild(function){
+  void runAfterBuild(function){
     return WidgetsBinding.instance
         .addPostFrameCallback((_) => function);
   }
   static T getState<T extends ChangeNotifier>({bool listen = true}){
     return Provider.of<T>(navigation.navigatorKey.currentContext!, listen:listen);
+  }
+}
+class Media {
+  static final BaseNavigationHelper navigation = NavigationHelper();
+  static height(){
+    return MediaQuery.of(navigation.currentContext!).size.height;
+  }
+  static width(){
+    return MediaQuery.of(navigation.currentContext!).size.width;
+  }
+  static orientation(){
+    return MediaQuery.of(navigation.currentContext!).orientation;
+  }
+  static MediaQueryData mediaQ(){
+    return MediaQuery.of(navigation.currentContext!);
   }
 }
