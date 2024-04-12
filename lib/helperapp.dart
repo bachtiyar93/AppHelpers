@@ -134,18 +134,3 @@ class AppHelpers {
     return Provider.of<T>(navigation.navigatorKey.currentContext!, listen:listen);
   }
 }
-class Media {
-  static final BaseNavigationHelper navigation = NavigationHelper();
-  static height(){
-    return MediaQuery.of(navigation.currentContext!).size.height;
-  }
-  static width(){
-    return MediaQuery.of(navigation.currentContext!).size.width;
-  }
-  static orientation(){
-    return MediaQuery.of(navigation.currentContext!).orientation;
-  }
-  static MediaQueryData mediaQ(){
-    return MediaQuery.of(navigation.currentContext!);
-  }
-}
