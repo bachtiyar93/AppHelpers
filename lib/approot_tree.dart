@@ -41,14 +41,15 @@ import 'package:flutter/material.dart';
 // }
 
 class AppRootTree extends MaterialApp {
-   const AppRootTree(this.navigatorKey,  {super.key,
+   const AppRootTree({super.key,
     required this.title,
     this.bannerShow=false,
     required this.themeMode,
     required this.initPage,
     required this.routes,
      this.builder,
-    this.scaffoldMessengerKey,
+     this.navigatorKey,
+     this.scaffoldMessengerKey,
     this.navigatorObserver,
     this.theme,
     this.darkTheme
