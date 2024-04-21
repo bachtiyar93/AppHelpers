@@ -43,9 +43,9 @@ import 'package:flutter/material.dart';
 class AppRootTree extends MaterialApp {
    const AppRootTree({super.key,
     required this.title,
-    required this.bannerShow,
+    required this.debugShowCheckedModeBanner,
     required this.themeMode,
-    required this.initPage,
+    required this.initialRoute,
     required this.routes,
      required this.navigatorKey,
      required this.scaffoldMessengerKey,
@@ -54,9 +54,9 @@ class AppRootTree extends MaterialApp {
     required this.darkTheme
   });
   final String title;
-  final bool bannerShow;
+  final bool debugShowCheckedModeBanner;
   final ThemeMode themeMode;
-  final String initPage;
+  final String initialRoute;
   final Map<String, Widget Function(BuildContext)> routes;
   final GlobalKey<NavigatorState> navigatorKey;
   final GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey;
@@ -70,13 +70,13 @@ class AppRootTree extends MaterialApp {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: title,
-      debugShowCheckedModeBanner: bannerShow,
+      debugShowCheckedModeBanner: debugShowCheckedModeBanner,
       navigatorKey: navigatorKey,
       scaffoldMessengerKey: scaffoldMessengerKey,
       theme: theme,
       darkTheme: darkTheme,
       themeMode: themeMode,
-      initialRoute: initPage,
+      initialRoute: initialRoute,
       routes: routes,
     );
   }
