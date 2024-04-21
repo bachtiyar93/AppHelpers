@@ -47,7 +47,6 @@ class AppRootTree extends MaterialApp {
     required this.themeMode,
     required this.initPage,
     required this.routes,
-     required this.builder,
      required this.navigatorKey,
      required this.scaffoldMessengerKey,
     required this.navigatorObserver,
@@ -59,7 +58,6 @@ class AppRootTree extends MaterialApp {
   final ThemeMode themeMode;
   final String initPage;
   final Map<String, Widget Function(BuildContext)> routes;
-  final Widget Function(BuildContext, Widget?) builder;
   final GlobalKey<NavigatorState> navigatorKey;
   final GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey;
    final List<NavigatorObserver> navigatorObserver;
@@ -73,7 +71,6 @@ class AppRootTree extends MaterialApp {
     return MaterialApp(
       title: title,
       debugShowCheckedModeBanner: bannerShow,
-      builder: builder,
       navigatorKey: navigatorKey,
       scaffoldMessengerKey: scaffoldMessengerKey,
       theme: theme,
