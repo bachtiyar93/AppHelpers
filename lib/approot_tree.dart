@@ -43,36 +43,28 @@ import 'package:flutter/material.dart';
 class AppRootTree extends MaterialApp {
    const AppRootTree({super.key,
     required this.title,
-    this.bannerShow=false,
+    required this.bannerShow,
     required this.themeMode,
     required this.initPage,
     required this.routes,
-     this.builder,
-     this.navigatorKey,
-     this.scaffoldMessengerKey,
-    this.navigatorObserver,
-    this.theme,
-    this.darkTheme
+     required this.builder,
+     required this.navigatorKey,
+     required this.scaffoldMessengerKey,
+    required this.navigatorObserver,
+    required this.theme,
+    required this.darkTheme
   });
-  @override
   final String title;
   final bool bannerShow;
-  @override
   final ThemeMode themeMode;
   final String initPage;
-  @override
   final Map<String, Widget Function(BuildContext)> routes;
-  @override
-  final Widget Function(BuildContext, Widget?)? builder;
-  @override
-  final GlobalKey<NavigatorState>? navigatorKey;
-  @override
-  final GlobalKey<ScaffoldMessengerState>? scaffoldMessengerKey;
-   final List<NavigatorObserver>? navigatorObserver;
-  @override
-  final ThemeData? theme;
-  @override
-  final ThemeData? darkTheme;
+  final Widget Function(BuildContext, Widget?) builder;
+  final GlobalKey<NavigatorState> navigatorKey;
+  final GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey;
+   final List<NavigatorObserver> navigatorObserver;
+  final ThemeData theme;
+  final ThemeData darkTheme;
 
 
 
@@ -82,10 +74,10 @@ class AppRootTree extends MaterialApp {
       title: title,
       debugShowCheckedModeBanner: bannerShow,
       builder: builder,
-      navigatorKey: navigatorKey??AppHelpers.navigation.navigatorKey,
-      scaffoldMessengerKey: scaffoldMessengerKey??AppHelpers.navigation.messengerKey,
-      theme: theme??ThemeData.light(useMaterial3: true),
-      darkTheme: darkTheme??ThemeData.dark(useMaterial3: true),
+      navigatorKey: navigatorKey,
+      scaffoldMessengerKey: scaffoldMessengerKey,
+      theme: theme,
+      darkTheme: darkTheme,
       themeMode: themeMode,
       initialRoute: initPage,
       routes: routes,
