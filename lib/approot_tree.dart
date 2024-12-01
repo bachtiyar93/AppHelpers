@@ -40,8 +40,8 @@ import 'package:flutter/material.dart';
 //   );
 // }
 
-class MateriapAppsample extends MaterialApp {
-   const MateriapAppsample({super.key,
+class MaterialAppSample extends MaterialApp {
+   const MaterialAppSample({super.key,
     required this.title,
     required this.debugShowCheckedModeBanner,
     required this.themeMode,
