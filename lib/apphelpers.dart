@@ -30,8 +30,6 @@ class AppHelpers {
   static String encryptBase64(String password) {
     return base64Encode(utf8.encode(password));
   }
-
-
   static showSnackBar({required Text text}){
     return ScaffoldMessenger.of(navigation.navigatorKey.currentContext!).showSnackBar(
         SnackBar(
