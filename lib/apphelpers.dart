@@ -5,14 +5,11 @@ import 'dart:io';
 import 'package:crypto/crypto.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'CurrencyFormatter/BaseCurrencyFormatter.dart';
-import 'CurrencyFormatter/CurrencyFormatter.dart';
 import 'NavigationHelper/BaseNavigationHelper.dart';
 import 'NavigationHelper/NavigationHelper.dart';
 
 /// A Calculator.
 class AppHelpers {
-  static final BaseCurrencyFormatter currency = CurrencyFormatter();
   static final BaseNavigationHelper navigation = NavigationHelper();
   static Future<bool> hasInternet() async {
     try {
@@ -34,69 +31,7 @@ class AppHelpers {
     return base64Encode(utf8.encode(password));
   }
 
-  // CustomProgressDialog
-  static Future<void> showWarning({title, text, dissmisable = false}) async {
-    return await showDialog<void>(
-      context: navigation.navigatorKey.currentContext!,
-      barrierColor: Colors.transparent,
-      barrierDismissible: dissmisable,
-      // false = user must tap button, true = tap outside dialog
-      builder: (BuildContext dialogContext) {
-        return AlertDialog(
-          title: Row(
-            children: [
-              const Icon(
-                Icons.warning_amber,
-                color: Colors.amber,
-              ),
-              Text(
-                title ?? "Error",
-                style: const TextStyle(color: Colors.amber),
-              ),
-            ],
-          ),
-          content: Text(text ?? ""),
-          actions: <Widget>[
-            TextButton(
-              child: const Text('OK'),
-              onPressed: () {
-                AppHelpers.navigation.closePage(); // Dismiss alert dialog
-              },
-            ),
-          ],
-        );
-      },
-    );
-  }
 
-// CustomProgressDialog
-  static Future<void> showProgress({text, dissmisable = false, child}) async {
-    return await showDialog<void>(
-      context: navigation.navigatorKey.currentContext!,
-      barrierColor: Colors.transparent,
-      barrierDismissible: dissmisable,
-      // false = user must tap button, true = tap outside dialog
-      builder: (BuildContext dialogContext) {
-        return AlertDialog(
-          backgroundColor: Colors.white,
-          content: Container(
-              alignment: FractionalOffset.center,
-              height: 80.0,
-              padding: const EdgeInsets.all(20.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  child??const CircularProgressIndicator(),
-                  const SizedBox(
-                    width: 5,
-                  ),
-                   Text(text)
-                ],
-              )),
-        );
-      },
-    );
-  }
   static showSnackBar({required Text text}){
     return ScaffoldMessenger.of(navigation.navigatorKey.currentContext!).showSnackBar(
         SnackBar(
@@ -120,10 +55,6 @@ class AppHelpers {
     } else {
       return ModalRoute.of(navigation.navigatorKey.currentContext!)!.settings.arguments;
     }
-  }
-  //Delay with duration
-  Future<void> futureDelay(Duration dur,function){
-    return Future.delayed(dur,()=>function);
   }
   ///run after state completly build
   void runAfterBuild(function){
