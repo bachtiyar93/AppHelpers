@@ -2,6 +2,7 @@ library helperapp;
 
 import 'dart:convert';
 import 'dart:io';
+import 'package:apphelper/http_connect.dart';
 import 'package:crypto/crypto.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
