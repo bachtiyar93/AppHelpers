@@ -2,15 +2,19 @@ library helperapp;
 
 import 'dart:convert';
 import 'dart:io';
+
+import 'package:apphelper/approot_tree.dart';
 import 'package:apphelper/http_connect.dart';
+import 'package:apphelper/responsive.dart';
 import 'package:crypto/crypto.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
 import 'NavigationHelper/BaseNavigationHelper.dart';
 import 'NavigationHelper/NavigationHelper.dart';
 
 /// A Calculator.
-class AppHelpers {
+class AppHelpers with MaterialApps, HttpExtension, Responsive{
   static final BaseNavigationHelper navigation = NavigationHelper();
   static Future<bool> hasInternet() async {
     try {

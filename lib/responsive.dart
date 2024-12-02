@@ -1,7 +1,6 @@
-import 'package:apphelper/apphelpers.dart';
 import 'package:flutter/material.dart';
 
-extension Responsive on AppHelpers {
+mixin Responsive{
   static bool isMobile(BuildContext context) =>
       MediaQuery.of(context).size.width < 850;
 

@@ -1,10 +1,10 @@
 import 'dart:convert';
 import 'dart:developer';
+
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
-import 'apphelpers.dart';
 
-extension HttpExtension on AppHelpers{
+mixin HttpExtension{
   ///This Function for CRUD
   Future<http.Response?> getAPI({required String uri, headers}) async {
     if(kDebugMode){

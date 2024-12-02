@@ -1,5 +1,4 @@
 library helperwidget;
-import 'package:apphelper/apphelpers.dart';
 import 'package:flutter/material.dart';
 
 //
@@ -39,6 +38,35 @@ import 'package:flutter/material.dart';
 //     routes: routes,
 //   );
 // }
+mixin MaterialApps{
+MaterialApp MaterialAppHelpers(
+{
+  required title,
+  required debugShowCheckedModeBanner,
+  required themeMode,
+  required initialRoute,
+  required routes,
+  required navigatorKey,
+  required scaffoldMessengerKey,
+  required navigatorObserver,
+  required theme,
+  required darkTheme
+}
+){
+  return MaterialApp(
+    title: title,
+    debugShowCheckedModeBanner: debugShowCheckedModeBanner,
+    navigatorKey: navigatorKey,
+    scaffoldMessengerKey: scaffoldMessengerKey,
+    theme: theme,
+    darkTheme: darkTheme,
+    themeMode: themeMode,
+    initialRoute: initialRoute,
+    routes: routes,
+  );
+}
+}
+
 
 class MaterialAppSample extends MaterialApp {
    const MaterialAppSample({super.key,
